@@ -1,16 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-function App() {
-	return (
-		<div className="App">
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import store from './store';
+import Dashboard from './containers/dashboard';
+
+export default () => (
+	<Router>
+		<Provider store={store}>
 			<Helmet>
 				<meta charSet="utf-8" />
 				<title>Cyder Assessment</title>
-
 			</Helmet>
-			<h1>Hello</h1>
-		</div>
-	);
-}
-
-export default App;
+			<Route path="/" component={Dashboard} exact />
+		</Provider>
+	</Router>
+);
