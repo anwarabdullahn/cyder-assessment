@@ -20,7 +20,7 @@ export default class Index extends Component {
 				genre: { alias: 'genre' }
 			},
 			selectedGenre: 'Sports',
-			soldValue: ''
+			soldValue: 0
 		};
 	}
 
@@ -58,25 +58,32 @@ export default class Index extends Component {
 		return (
 			<Row style={{ marginTop: 32 }}>
 				<Col span={12} xs={24} sm={24} md={24} lg={24} xl={24}>
-					<form onSubmit={this.handleSubmit}>
-						<span>
-							Add to {' '}
-							<Select defaultValue="Sports" style={{ width: '10%' }} onChange={this.onSelected}>
-								<Option value="Sports">Sports</Option>
-								<Option value="Strategy">Strategy</Option>
-								<Option value="Action">Action</Option>
-								<Option value="Shooter">Shooter</Option>
-								<Option value="Other">Other</Option>
-							</Select>{' '}
-							Sold Value <Input style={{ width: '10%' }} placeholder="300" onChange={this.onChange} /> {' '}
-							<Button type="primary" htmlType="submit">
-								Apply
-							</Button>
-						</span>
-					</form>
+					<Row>
+						<form onSubmit={this.handleSubmit}>
+							<span>
+								Add to {' '}
+								<Select style={{ width: '20%' }} defaultValue="Sports" onChange={this.onSelected}>
+									<Option value="Sports">Sports</Option>
+									<Option value="Strategy">Strategy</Option>
+									<Option value="Action">Action</Option>
+									<Option value="Shooter">Shooter</Option>
+									<Option value="Other">Other</Option>
+								</Select>{' '}
+								Sold Value <Input
+									style={{ width: '10%' }}
+									placeholder="300"
+									onChange={this.onChange}
+								/>{' '}
+								{' '}
+								<Button type="primary" htmlType="submit">
+									Apply
+								</Button>
+							</span>
+						</form>
+					</Row>
 				</Col>
 				<Col span={12} xs={24} sm={24} md={24} lg={24} xl={24}>
-					<Chart  height={500} data={dv} scale={cols} forceFit>
+					<Chart height={500} data={dv} scale={cols} forceFit>
 						<Coord type="theta" radius={0.75} />
 						<Axis name="sold" />
 						<Legend position="right" offsetY={-200 / 2 + 120} offsetX={-50} />
@@ -113,7 +120,7 @@ export default class Index extends Component {
 					</Chart>
 				</Col>
 				<Col span={12} xs={24} sm={24} md={12} lg={12} xl={12}>
-					<Chart  forceFit={true} data={data} scale={cols} height={300}>
+					<Chart forceFit={true} data={data} scale={cols} height={300}>
 						<Axis name="genre" title />
 						<Axis name="sold" title />
 						<Legend position="top" dy={-20} />
@@ -122,7 +129,7 @@ export default class Index extends Component {
 					</Chart>
 				</Col>
 				<Col span={12} xs={24} sm={24} md={12} lg={12} xl={12}>
-					<Chart  height={400} data={dv} forceFit>
+					<Chart height={400} data={dv} forceFit>
 						<Coord transpose />
 						<Axis
 							name="genre"
