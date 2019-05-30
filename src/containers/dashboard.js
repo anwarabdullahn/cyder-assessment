@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
 				<Sider />
 				<Layout>
 					<Header style={{ background: '#fff', padding: 0 }} />
-					<Content style={{ margin: '24px 16px 0', padding: 24, background: '#fff', minHeight: 360 }}>
+					<Content style={{ margin: '24px 16px 0px 16px', padding: 16, background: '#fff', minHeight: 560 }}>
 						<DashboardPage />
 					</Content>
 					<Footer style={{ textAlign: 'center' }} />
