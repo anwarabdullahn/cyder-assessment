@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Layout } from 'antd';
 import Sider from '../components/Sider';
 import DashboardPage from '../pages/Dashboard';
-import './_dashboard.scss';
 
 const { Header, Content, Footer } = Layout;
 
